@@ -4,7 +4,7 @@ import NavLink from "./NavLink";
 const tabs = [
   {
     name: "Find Project",
-    href: "",
+    href: "/",
   },
   {
     name: "Reports",
