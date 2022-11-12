@@ -8,10 +8,11 @@ const tabs = [
   },
   {
     name: "Reports",
-    href: "/reports",
+    href: "reports",
   },
-  { name: "My Contracts", href: "contracts" },
-  { name: "Request Project", href: "request" },
+  { name: "My Contracts", href: "/contracts" },
+  { name: "Request Project", href: "/request" },
+  { name: "Test", href: "/test" },
 ];
 
 export default function Navbar() {
