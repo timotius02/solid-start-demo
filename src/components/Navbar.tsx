@@ -1,4 +1,4 @@
-import { createSignal, For } from "solid-js";
+import { For } from "solid-js";
 import NavLink from "./NavLink";
 
 const tabs = [
@@ -12,7 +12,6 @@ const tabs = [
   },
   { name: "My Contracts", href: "/contracts" },
   { name: "Request Project", href: "/request" },
-  { name: "Test", href: "/test" },
 ];
 
 export default function Navbar() {
