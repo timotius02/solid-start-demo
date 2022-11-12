@@ -1,31 +1,27 @@
-import { A } from "solid-start";
-import Counter from "~/components/Counter";
+import { createResource, For, Suspense } from "solid-js";
+import { A, useRouteData } from "solid-start";
+import CardList from "~/components/CardList";
+import fetchMockData from "~/utils/fetchMockData";
 
+export function routeData() {
+  const [posts] = createResource(async () => {
+    const response = await fetchMockData();
+    return response;
+  });
+
+  return { posts };
+}
 export default function Home() {
+  const { posts } = useRouteData<typeof routeData>();
   return (
-    <main class="text-center mx-auto text-gray-700 p-4">
-      <h1 class="max-6-xs text-6xl text-sky-700 font-thin uppercase my-16">
-        Hello world!
-      </h1>
-      <Counter />
-      <p class="mt-8">
-        Visit{" "}
-        <a
-          href="https://solidjs.com"
-          target="_blank"
-          class="text-sky-600 hover:underline"
-        >
-          solidjs.com
-        </a>{" "}
-        to learn how to build Solid apps.
-      </p>
-      <p class="my-4">
-        <span>Home</span>
-        {" - "}
-        <A href="/about" class="text-sky-600 hover:underline">
-          About Page
-        </A>{" "}
-      </p>
+    <main class="py-6">
+      <div class="mx-auto grid max-w-7xl grid-cols-12 gap-4">
+        <div class="col-span-5">
+          <CardList posts={posts}></CardList>
+        </div>
+        <div class="col-span-5 h-8 bg-gray-300">2</div>
+        <div class="col-span-2 h-8 bg-white">3</div>
+      </div>
     </main>
   );
 }
